@@ -54,7 +54,9 @@ def shape_element(element, node_attr_fields=NODE_FIELDS, way_attr_fields=WAY_FIE
                     tag_attrib[node_tag_fields[0]]=element.get('id')
                     tag_attrib[node_tag_fields[1]]=tag.get('k')[(tag.get('k').find(':')+1):]
                     if tag.attrib['k']== "addr:street":
-                        tag_attrib[node_tag_fields[2]]=audit_street_name_tag(tag)    
+                        tag_attrib[node_tag_fields[2]]=audit_street_name_tag(tag)
+                    elif tag.attrib['k']== "addr:postcode":
+                        tag_attrib[node_tag_fields[2]]=audit_postcode_tag(tag)       
                     else:
                         tag_attrib[node_tag_fields[2]]=tag.get('v')
                     tag_attrib[node_tag_fields[3]]=tag.get('k').split(':')[0]
@@ -65,11 +67,13 @@ def shape_element(element, node_attr_fields=NODE_FIELDS, way_attr_fields=WAY_FIE
                     tag_attrib[node_tag_fields[1]]=tag.get('k')
                     if tag.attrib['k']== "addr:street":
                         tag_attrib[node_tag_fields[2]]=audit_street_name_tag(tag)
+                    elif tag.attrib['k']== "addr:postcode":
+                        tag_attrib[node_tag_fields[2]]=audit_postcode_tag(tag)    
                     else:    
                         tag_attrib[node_tag_fields[2]]=tag.get('v')
                     tag_attrib[node_tag_fields[3]]=default_tag_type
                     tags.append(tag_attrib.copy())
-            
+             
         
                 
     elif element.tag=='way':
@@ -89,7 +93,6 @@ def shape_element(element, node_attr_fields=NODE_FIELDS, way_attr_fields=WAY_FIE
         
         if element.find('tag') is None:
             pass
-#           print 'No Tags'
            
         elif element.find('tag') is not None:
             way_tag_attrib={}
@@ -102,6 +105,8 @@ def shape_element(element, node_attr_fields=NODE_FIELDS, way_attr_fields=WAY_FIE
                     way_tag_attrib[way_tag_fields[1]]=tag.get('k')[(tag.get('k').find(':')+1):]
                     if tag.attrib['k']== "addr:street":
                         way_tag_attrib[way_tag_fields[2]]=audit_street_name_tag(tag)
+                    elif tag.attrib['k']== "addr:postcode":
+                        way_tag_attrib[way_tag_fields[2]]=audit_postcode_tag(tag)    
                     else:
                         way_tag_attrib[way_tag_fields[2]]=tag.get('v')
                     way_tag_attrib[way_tag_fields[3]]=tag.get('k').split(':')[0]
@@ -111,7 +116,9 @@ def shape_element(element, node_attr_fields=NODE_FIELDS, way_attr_fields=WAY_FIE
                     way_tag_attrib[way_tag_fields[0]]=element.get('id')
                     way_tag_attrib[way_tag_fields[1]]=tag.get('k')
                     if tag.attrib['k']== "addr:street":
-                        way_tag_attrib[way_tag_fields[2]]=audit_street_name_tag(tag)   
+                        way_tag_attrib[way_tag_fields[2]]=audit_street_name_tag(tag) 
+                    elif tag.attrib['k']== "addr:postcode":
+                        way_tag_attrib[way_tag_fields[2]]=audit_postcode_tag(tag)    
                     else:   
                         way_tag_attrib[way_tag_fields[2]]=tag.get('v')
                     way_tag_attrib[way_tag_fields[3]]=default_tag_type
