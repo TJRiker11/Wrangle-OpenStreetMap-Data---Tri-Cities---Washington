@@ -12,6 +12,9 @@ All files for this project can be seen [Here](https://github.com/TrikerDev/Wrang
 - Inconsistent and incorrect postal codes (some have 5 digits '11111' some have 9 '11111-1111' and some dont have enough digits to form a correct zip code
 - Tags have many problem characters such as hyphens, dashes, underscores, etc
 
+### Benefits to fixing these problems
+The reason for doing a project like this is to clean messy data and make it consistent. With so many different endings for streets and post codes, it can get confusing to read a map. Changing all data for an area to have completely consistent data with all other data makes the map much more readable and less messy.
+
 
 ### Auditing Tags
 ```Python
