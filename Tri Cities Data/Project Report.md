@@ -226,6 +226,24 @@ sandwich, 13
  ```
  
  
+### Top 5 Amenities
+```XML
+query="select value, count(*) as num from nodes_tags where key='amenity' group by value order by num desc limit 25;"
+cur.execute(query)
+rows=cur.fetchall()
+
+pprint.pprint(rows)
+```
+```
+bench, 151
+restaurant, 52
+toilets, 51
+fast_food, 46
+parking, 30
+ ```
+ 
+ 
+ 
  ### Ideas for Additional Improvement
  Additional improvement that could be made to the dataset is just overall human error correction. Any dataset this large that is entirely comprised of human input will have errors and doing cleaning and analysis like this on all types of different data points would make the data much more uniform across the dataset. This could be improved by having a uniform data entering scheme that all users of OpenStreetMaps have to follow to submit data. This could help keep the data between different users much more uniform in general.
  
