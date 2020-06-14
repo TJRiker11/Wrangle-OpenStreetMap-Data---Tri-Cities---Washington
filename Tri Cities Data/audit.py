@@ -152,7 +152,7 @@ for zip_type, ways in zip_types.iteritems():
             
             
             
- # The way to audit the postcodes is to make them all uniform. Since the vast majority of them are 5 digits, we will be
+# The way to audit the postcodes is to make them all uniform. Since the vast majority of them are 5 digits, we will be
 # auditing the longer codes by stripping off the extra digits and he '-'. This will make every post code a uniform 5 digits
 def update_postcode(name): 
     if "-" in name:
