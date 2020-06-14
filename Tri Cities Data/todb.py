@@ -1,3 +1,19 @@
+import xml.etree.ElementTree as ET
+import pprint
+from collections import defaultdict
+import pandas
+import re
+import csv
+import codecs
+import sqlite3
+import cerberus
+import schema
+import os
+from audit import audit_street_name_tag
+from audit import audit_postcode_tag
+
+
+
 NODES_PATH = "nodes.csv"
 NODE_TAGS_PATH = "nodes_tags.csv"
 WAYS_PATH = "ways.csv"
