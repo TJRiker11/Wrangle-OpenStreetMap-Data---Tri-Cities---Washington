@@ -17,7 +17,7 @@ The reason for doing a project like this is to clean messy data and make it cons
 
 
 ### Auditing Tags
-```Python
+```python
 # Adding variables for the tags to be stored under, definitions above
 lower = re.compile(r'^([a-z]|_)*$')
 lower_colon = re.compile(r'^([a-z]|_)*:([a-z]|_)*$')
@@ -55,7 +55,7 @@ f.close()
 
 
 ### Auditing Street Names - Expected values and mapping to values
-```Python
+```python
 street_type_re = re.compile(r'\b\S+\.?$', re.IGNORECASE)
 
 # The values we expect to see. This is the end result of all street name endings we want
@@ -99,7 +99,7 @@ mapping = {
 ```
 
 ### Auditing Post Codes
-```Python
+```python
 # The way to audit the postcodes is to make them all uniform. Since the vast majority of them are 5 digits, we will be
 # auditing the longer codes by stripping off the extra digits and he '-'. This will make every post code a uniform 5 digits
 def update_postcode(name): 
@@ -125,7 +125,7 @@ def audit_postcode_tag(element,regex=re.compile(r'\b\S+\.?$', re.IGNORECASE)):
 
 
 ### Size of Files
-```Python
+```python
 #links to the csv files
 nodes_csv = 'nodes.csv'
 ways_csv = 'ways.csv'
@@ -167,7 +167,7 @@ print("Size (In bytes) of '%s':" %waysnodes_csv, size_waysnodes)
 ### Exploring Data
 
 ### Number of Nodes
-```XML
+```python
 query = "SELECT count(DISTINCT(id)) FROM nodes;"
 cur.execute(query)
 rows=cur.fetchall()
@@ -177,7 +177,7 @@ pprint.pprint(rows)
 368263
 
 ### Number of Ways
-```XML
+```python
 query = "SELECT count(DISTINCT(id)) FROM ways;"
 cur.execute(query)
 rows=cur.fetchall()
@@ -188,7 +188,7 @@ pprint.pprint(rows)
 
 
 ### Number of Unique Users
-```XML
+```python
 query = "SELECT COUNT(DISTINCT(e.uid))FROM (SELECT uid FROM Nodes UNION ALL SELECT uid FROM Ways) as e;"
 cur.execute(query)
 rows=cur.fetchall()
@@ -198,7 +198,7 @@ pprint.pprint(rows)
 447
 
 ### Top 5 Contributing Users
-```XML
+```python
 query= 'SELECT e.user, COUNT(*) as num FROM (SELECT user FROM nodes UNION ALL SELECT user FROM ways) e GROUP BY e.user ORDER BY num DESC LIMIT 25;'
 cur.execute(query)
 rows = cur.fetchall()
@@ -213,7 +213,7 @@ woodpeck_fixbot, 15212
 ```
 
 ### Top 5 Quisines
-```XML
+```python
 query="select value,count(*) as num from (select key,value from nodes_tags UNION ALL select key,value from ways_tags) as e where e.key like '%cuisine%' group by value order by num desc limit 25;"
 cur.execute(query)
 rows=cur.fetchall()
@@ -230,7 +230,7 @@ sandwich, 13
  
  
 ### Top 5 Amenities
-```XML
+```python
 query="select value, count(*) as num from nodes_tags where key='amenity' group by value order by num desc limit 25;"
 cur.execute(query)
 rows=cur.fetchall()
