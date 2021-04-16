@@ -3,6 +3,7 @@
 
 
 # Project Details
+
 This project is connected to the Data Wrangling course. You have the choice between two databases for this project: SQL and MongoDB. For an explanation of the differences between these two databases, continue to the next concept in this lesson. There are separate instructions where relevant below for each database choice.
 
 Here's what you should do:
