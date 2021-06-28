@@ -8,6 +8,7 @@ This project is connected to the Data Wrangling course. You have the choice betw
 
 Here's what you should do:
 
+
 # Step One - Complete Programming Exercises
 Make sure all programming exercises are solved correctly in the "Case Study: OpenStreetMap Data" Lesson in the course you have chosen (MongoDB or SQL). This is the last lesson in that section.
 
